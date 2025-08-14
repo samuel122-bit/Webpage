@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LBR System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <span>0956 892 5021</span>
+      <a href="#admin-login" class="admin-link">Admin Login</a>
+    </div>
+    <nav>
+      <div class="logo">LBR-SYSTEM</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+  </header>  <main id="home">
+    <div class="registration-container">
+      <div class="registration-box">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <h2>Registration</h2>
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Middle Name">
+        <input type="text" placeholder="Last Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="ID Number">
+        <input type="password" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <a href="#login">Login</a>
+      </div>
+    </div>
+  </main>  <section id="admin-login">
+    <div class="admin-login-box">
+      <img src="admin-logo.png" alt="Admin Logo" class="logo-img">
+      <h2>Admin Login</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <a href="#home">Go to Website</a>
+      <button onclick="adminLogin()">Sign In</button>
+    </div>
+  </section>  <script src="script.js"></script></body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu Navigation Example</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Navigation bar container */
+    nav {
+      background-color: #333;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Main menu */
+    .menu {
+      list-style: none;
+      display: flex;
+    }
+
+    .menu > li {
+      position: relative;
+    }
+
+    /* Menu links */
+    .menu a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+      background-color: #575757;
+    }
+
+    /* Dropdown submenu container */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #444;
+      list-style: none;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+
+    .submenu li a {
+      padding: 12px 16px;
+      color: white;
+    }
+
+    .submenu li a:hover {
+      background-color: #666;
+    }
+
+    /* Show submenu on hover */
+    .menu > li:hover > .submenu {
+      display: block;
+    }
+
+    /* Mobile toggle button */
+    .menu-toggle {
+      display: none;
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        display: none;
+      }
+      .menu > li:hover > .submenu {
+        display: none; /* Disable hover submenu on mobile */
+      }
+      .submenu {
+        position: static;
+        box-shadow: none;
+      }
+      .submenu li a {
+        padding-left: 40px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="menu-toggle">☰ Menu</div>
+  <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li>
+      <a href="#">Services ▼</a>
+      <ul class="submenu">
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">App Development</a></li>
+        <li><a href="#">SEO</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">About ▼</a>
+      <ul class="submenu">
+        <li><a href="#">Company</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Toggle menu on mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menu');
+
+  menuToggle.addEventListener('click', () => {
+    if (menu.style.display === 'flex') {
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'flex';
+    }
+  });
+
+  // Toggle submenu on mobile when clicking parent item
+  const menuItems = document.querySelectorAll('.menu > li > a');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      if(window.innerWidth <= 768) {
+        const submenu = item.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu')) {
+          e.preventDefault(); // prevent default link behavior
+          if (submenu.style.display === 'block') {
+            submenu.style.display = 'none';
+          } else {
+            submenu.style.display = 'block';
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>I 
